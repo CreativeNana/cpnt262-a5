@@ -7,7 +7,7 @@
   + [GH repo](https://github.com/CreativeNana/cpnt262-a5)
   + [HEROKU](https://nana-cpnt262-a5.herokuapp.com/)
   + [Heroku: Array](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys)
-  + [Heroku: ID](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/1)
+  + [Heroku: ID][1](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/1)[3](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/3)[5](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/5)
 
 ### * Comments: 
   + Install 
@@ -16,13 +16,8 @@
     - dotenv library
     - mongoose
 
-  + Use middleware functions 
-    - app.use for providing middleware
-    - express.static for using static files in Express
-
-  + JSON API endpoints
-    - Object(array)
-    - individual ID
+  + Input Data to DB
+    - node import.js
 
   + Set a PORT
     - a specific Port within the .env file

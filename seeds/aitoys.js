@@ -52,7 +52,7 @@ const aitoys = [
     title: 'Robot Puppy', 
     description: 'Gray colored Robot Puppy',
     url: 'https://unsplash.com/photos/U32jeOdkgfA'
-  },
-]
+  }
+];
 
 module.exports = aitoys;

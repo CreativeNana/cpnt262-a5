@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 /*
 "Everything in Mongoose starts with a Schema. Each schema maps to a MongoDB collection and defines the shape of the documents within that collection."
 */
+ 
 const toylistSchema = new mongoose.Schema(
   {
     id:           Number,
@@ -13,6 +14,7 @@ const toylistSchema = new mongoose.Schema(
     url:          String
   }
 );
+
 
 // Compile and export our model using the above Schema.
 // See: https://mongoosejs.com/docs/models.html 

@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config();
 const dbSeed = require('./seeds/aitoys.js');
 
 // Import model data
-const aiToy = require('./models/aitoys.js');
+const aiToys = require('./models/aitoys.js');
 
 
 // Connect to MongoDB
@@ -27,6 +27,7 @@ db.once('open', function() {
   console.log('Connected to DB...');
 });
 
-aiToy.insertMany(dbSeed, function(error, animal) {
+aiToys.insertMany(dbSeed, function(error, aitoy) {
   console.log('Data import completed.')
+  mongoose.connection.close();
 });

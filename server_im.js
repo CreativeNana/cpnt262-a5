@@ -9,22 +9,6 @@ const cors = require('cors');
 // Import models
 const aiToys = require(`./models/aitoys.js`);
 
-// Connect to MongoDB
-const mongoDB = process.env.MONGODB_URL;
-mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
-
-const db = mongoose.connection;
-
-// Set up callback if DB connection fails
-db.on('error', function(error){
-  console.log(`DB Connection Error: ${error.message}`)
-});
-
-// Set up callback if DB connection is successful
-db.once('open', function() {
-  console.log('Connected to DB...');
-});
-
 // Create express app
 const app = express();
 
@@ -40,8 +24,23 @@ app.use(cors(corsOptions));
 
 // app.use is for using middleware
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(express.urlencoded({ extended: true }));
+
+// Connect to MongoDB
+const mongoDB = process.env.MONGODB_URL;
+mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
+
+var db = mongoose.connection;
+
+// Set up callback if DB connection fails
+db.on('error', function(error){
+  console.log(`DB Connection Error: ${error.message}`)
+});
+
+// Set up callback if DB connection is successful
+db.once('open', function() {
+  console.log('Connected to DB...');
+});
 
 // Display list of data
 app.get('/', function(request, response){
@@ -50,16 +49,32 @@ app.get('/', function(request, response){
 
 // JSON GET Endpoint: Array Object 
 app.get('/api/v0/aitoys', function(request, response){
+  aiToys.find({}, function(error, aitoys) {
+    if (error || aitoys===null) {
+      console.log(aitoys);
+      response.send('Could not find any AI Toys');
+    } else {
+      console.log(aitoys);
+    response.json(aitoys);
+  }});
+});
 
-  aiToys.find(function(error, result) { 
-    response.json(result);
+app.get('/api/v0/aitoys/:id', (req, res) => {
+  aiToys.findOne({id: req.params.id}, (err, data) => {
+    if (err || data===null) {
+      console.log(data);
+      res.send('Could not find aiToys');
+    }
+    else {
+      res.json(data);
+    }
   });
-})
+});
 
-// JSON GET Endpoint: Individual ID
-app.get('/api/v0/aitoys/:id', function(request, response){
+// JSON GET Endpoint: Individual page 
+/* app.get('/api/v0/aitoys/:id', function(request, response){
   let aitoyID = request.params.id;
-  aiToys.findOne({'id': aitoyID}, function(error, aitoy) {
+  aiToys.findOne({id: aitoyID}, function(error, aitoy) {
     if (!aitoy) {
       console.log(aitoy);
       return response.send('Invalid ID. Please try it again!');
@@ -67,6 +82,7 @@ app.get('/api/v0/aitoys/:id', function(request, response){
     response.json(aitoy);
   });
 })
+*/
 
 // Add more middleware
 app.use(function(req, res, next) {
