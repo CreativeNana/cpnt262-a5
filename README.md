@@ -7,7 +7,7 @@
   + [GH repo](https://github.com/CreativeNana/cpnt262-a5)
   + [HEROKU](https://nana-cpnt262-a5.herokuapp.com/)
   + [Heroku: Array](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys)
-  + [Heroku: ID][1](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/1)[3](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/3)[5](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/5)
+  + [Heroku: ID][1](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/1) / [3](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/3) / [5](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/5)
 
 ### * Comments: 
   + Install 
