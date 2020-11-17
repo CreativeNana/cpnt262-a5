@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Display list of data
 app.get('/', function(request, response){
-  response.send('<h1>Please check the AI Toys list by adding \"<strong> /api/v0/aitoys </strong>\" at the end of the URL.</h1>', {});
+  response.send('<h1>Please check the AI Toys list by adding /api/v0/aitoys</h1>');
 })
 
 // JSON GET Endpoint: Array Object 
