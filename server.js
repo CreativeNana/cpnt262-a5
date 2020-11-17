@@ -49,20 +49,22 @@ app.get('/', function(request, response){
 
 // JSON GET Endpoint: Array Object 
 app.get('/api/v0/aitoys', function(request, response){
-  aiToy.find(function(error, aitoys) { 
-    console.log(aitoys);
-    response.json(aitoys);
-  });
+  aiToys.find({}, function(error, data) {
+    if (!data) {
+      return response.send('Could not find any AI Toys');
+    } else {
+    response.json(data);
+  }});
 })
 
 // JSON GET Endpoint: Individual page 
 app.get('/api/v0/aitoys/:id', function(request, response){
-  let aitoyID = request.parameter.id;
-  aiToy.findOne({'id': aitoyID}, function(error, aitoy) {
-    if (!aitoy) {
+  let aitoyID = request.params.id;
+  aiToys.findOne({id: aitoyID}, function(error, data) {
+    if (!data) {
       return response.send('Invalid ID. Please try it again!');
     }
-    response.json(aitoy);
+    response.json(data);
   });
 })
 
