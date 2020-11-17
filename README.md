@@ -1,11 +1,13 @@
 ## [Course title: CPNT-262-A: Web Client & Server Prog.]
 
-### * Assignment 3: Deployed Static Express Website 
+### * Assignment 5: JSON Server with Heroku and MongoDB Atlas 
 ### * Author name: Nana
 
 ### * Links to:
   + [GH repo](https://github.com/CreativeNana/cpnt262-a5)
-  + [HEROKU App](https://nana-cpnt262-a5.herokuapp.com/)
+  + [HEROKU](https://nana-cpnt262-a5.herokuapp.com/)
+  + [Heroku: Array](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys)
+  + [Heroku: ID](https://nana-cpnt262-a5.herokuapp.com/api/v0/aitoys/1)
 
 ### * Comments: 
   + Install 
